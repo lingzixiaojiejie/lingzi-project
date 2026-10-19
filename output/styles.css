@@ -422,3 +422,82 @@
 [data-node-id='63:79'] p{line-height:1.3}#room-scene [data-node-id='64:843']{top:0;height:958px}header [data-node-id='65:932'] img{width:53px;height:48px}#rooms p{width:100%;text-align:center}
 #center-panel [data-node-id='81:1909']{flex:none;width:864px;max-height:200px;overflow-y:auto;scrollbar-width:none}#center-panel [data-name=box-center]{overflow:hidden}#center-panel [data-node-id='96:1250']{display:flex}#center-panel [data-node-id='96:1250']>div{transition:transform .15s}#right-panels [data-node-id='77:1273']{max-height:200px;overflow:auto;scrollbar-width:none}
 [data-name='card_tip'] [class*='-scale-y-100']{scale:1}
+
+/* Responsive monitor layout. Sizes are CSS pixels, independent of viewport scale. */
+html,body{width:100%;height:100%;overflow:hidden}
+#dashboard{position:relative;inset:auto;width:100%;height:100vh;height:100dvh;display:grid;grid-template-columns:152px minmax(0,1fr);grid-template-rows:74px minmax(0,1fr);transform:none;overflow:hidden}
+#dashboard.is-collapsed{grid-template-columns:64px minmax(0,1fr)}
+#dashboard>header{grid-column:1/-1;min-width:0;overflow-x:auto;overflow-y:hidden;height:74px;scrollbar-width:thin}
+#dashboard>header>div{width:100%;min-width:1780px;height:74px;flex-shrink:0}
+#dashboard>aside{position:relative;inset:auto;grid-column:1;grid-row:2;width:152px;height:100%;min-height:0;overflow:hidden}
+#dashboard>aside.collapsed{width:64px}
+aside>[data-name=left]{height:100%;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#0089dc #052657}
+aside>[data-name=left]>div:not([data-name]){flex-shrink:0;min-height:54px}
+aside [data-name='Collapse/Expand_button']{position:fixed;left:137px;right:auto;top:74px;width:15px;height:calc(100dvh - 74px);z-index:8;pointer-events:none}
+aside [data-name='Collapse/Expand_button']>div{pointer-events:auto;top:calc(50% - 30px);bottom:auto;height:60px;overflow:hidden}
+aside [data-name='Collapse/Expand_button'] img{position:absolute;top:50%;height:1042px;transform:translateY(-50%)}
+aside.collapsed [data-name='Collapse/Expand_button']{left:49px}
+aside.collapsed>[data-name=left]>div:not([data-name]){width:64px;padding-left:0;padding-right:0}
+aside.collapsed>[data-name=left]>div:not([data-name])>p,aside.collapsed>[data-name=left]>div:not([data-name])>div>p{display:none}
+#workspace{position:relative;inset:auto;grid-row:2;grid-column:2;width:100%;height:100%;min-width:0;min-height:0;overflow:hidden;isolation:isolate}
+#workspace>.room-background{position:absolute;inset:0;width:100%;height:100%;translate:none;pointer-events:none;z-index:-1}
+#workspace>.room-background img{object-fit:cover;object-position:center top}
+#categories,#rooms{left:16px;right:16px;width:auto;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;overscroll-behavior:contain}
+#categories{height:48px;top:16px}#rooms{height:38px;top:80px}
+#categories>div,#rooms>div{width:max-content;min-width:100%;height:100%;flex-wrap:nowrap}
+#categories>div>div{width:140px;flex-shrink:0}
+#rooms>div>div{width:117px;flex-shrink:0}
+#room-scene{position:absolute;width:835px;height:552px;transform-origin:center top;pointer-events:none}
+#room-scene [role=button]{pointer-events:auto}
+#panels{position:absolute;inset:134px 16px 16px;width:auto;height:auto;min-height:0;min-width:0;grid-template-columns:400px minmax(0,1fr) 400px;gap:10px;align-items:stretch}
+#left-panels,#right-panels{height:100%;width:400px;min-height:0;min-width:0}
+#left-panels{grid-column:1}#right-panels{grid-column:3}
+#left-panels>div,#right-panels>div{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:10px;width:100%;height:100%;min-height:0}
+#left-panels>div>div,#right-panels>div>div{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+#panels [data-name=box-top]{height:45px;min-height:45px;flex:0 0 45px}
+#panels [data-name=box-bottom]{height:17px;min-height:17px;flex:0 0 17px}
+[data-panel-body]{flex:1 1 0;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#0089dc #0747a0}
+#left-panels [data-node-id='71:81']{align-items:flex-start}
+#left-panels [data-node-id='71:81']>div{height:200.667px;flex-shrink:0}
+#left-panels [data-node-id='73:491'],#left-panels [data-node-id='74:700']{grid-template-rows:repeat(2,minmax(95.333px,1fr));align-content:start}
+#right-panels [data-node-id='77:1057']{justify-content:flex-start}
+#right-panels [data-node-id='77:1057']>div{flex:1 0 95.333px;min-height:95.333px}
+#right-panels [data-node-id='77:1201']{justify-content:flex-start;overflow:auto}
+#right-panels [data-node-id='77:1273']{flex:none;min-height:232px;max-height:none;height:auto;overflow:visible}
+#right-panels [data-node-id='77:1273']>div{flex-shrink:0}
+#right-panels [data-node-id='77:1477']{flex:1 0 200.667px;min-height:200.667px}
+#center-panel{grid-column:2;grid-row:1;align-self:end;min-width:0;margin:0;width:100%;height:calc((100% - 20px)/3 + 48px);min-height:120px;overflow:hidden}
+#center-panel>div{width:100%;height:100%;min-height:0;align-items:stretch}
+#center-panel [data-name='小机房按钮']{flex:0 0 38px;min-height:38px;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;justify-content:safe center}
+#center-panel [data-name='小机房按钮']>div{flex-shrink:0}
+#center-panel [data-node-id='81:1807']{min-height:0;flex:1 1 0}
+#center-panel [data-node-id='81:1809']{padding:16px 16px 0;min-height:0;overflow:hidden}
+#center-panel #alarm-scroll{display:block;flex:1 1 0;width:100%;height:100%;max-height:none;min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#0089dc #0747a0}
+#alarm-scroll>div{width:100%;min-width:864px}
+#alarm-scroll>div:first-child{position:sticky;top:0;z-index:1;background:#06285d}
+#center-panel [data-node-id='96:1250']{display:none}
+aside>[data-name=left]::-webkit-scrollbar,[data-panel-body]::-webkit-scrollbar,#alarm-scroll::-webkit-scrollbar{width:7px;height:7px}
+aside>[data-name=left]::-webkit-scrollbar-track,[data-panel-body]::-webkit-scrollbar-track,#alarm-scroll::-webkit-scrollbar-track{background:#0747a0;border-radius:20px}
+aside>[data-name=left]::-webkit-scrollbar-thumb,[data-panel-body]::-webkit-scrollbar-thumb,#alarm-scroll::-webkit-scrollbar-thumb{background:#0089dc;border-radius:20px}
+#alarm-scroll::-webkit-scrollbar-thumb:hover{background:#02f0ff}
+#alarm-scroll::-webkit-scrollbar-corner{background:#0747a0}
+/* When three fixed columns no longer fit, reflow rather than scale navigation. */
+@media(max-width:1100px){
+ #workspace{overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#0089dc #0747a0}
+ #panels{inset:134px 16px auto;display:grid;grid-template-columns:repeat(2,400px);justify-content:space-between;grid-template-rows:520px max(420px,calc(100dvh - 224px));height:auto;overflow:visible;padding-bottom:16px}
+ #center-panel{grid-column:1/-1;grid-row:1;height:260px;align-self:end}
+ #left-panels{grid-column:1;grid-row:2}#right-panels{grid-column:2;grid-row:2}
+ #room-scene{z-index:0}#panels{pointer-events:none}#center-panel,#left-panels,#right-panels{pointer-events:auto}
+}
+@media(max-width:1014px){
+ #panels{grid-template-columns:minmax(0,400px);justify-content:center;grid-template-rows:520px repeat(2,max(420px,calc(100dvh - 224px)))}
+ #center-panel{grid-column:1;grid-row:1}#left-panels{grid-column:1;grid-row:2}#right-panels{grid-column:1;grid-row:3}
+ #left-panels,#right-panels{width:100%}
+}
+#left-panels>div,#right-panels>div{align-items:stretch}
+#dashboard>header>div{display:grid;grid-template-columns:max-content minmax(max-content,1fr) max-content;column-gap:24px;min-width:max-content}
+#dashboard>header>div>p{text-align:center}
+header,#categories,#rooms,#center-panel [data-name='小机房按钮']{scrollbar-color:#0089dc #0747a0}
+#center-panel{height:calc((100% - 20px)/3 + var(--room-nav-height,38px) + 10px)}
+#center-panel [data-name='小机房按钮']{flex-basis:var(--room-nav-height,38px);min-height:var(--room-nav-height,38px)}
+@media(max-width:1100px){#center-panel{height:260px}}
